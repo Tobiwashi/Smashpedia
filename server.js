@@ -8,6 +8,7 @@ const db = mongoose.connection;
 const characterSchema = require('./models/characterSchema')
 const allCharacters = require('./models/roster')
 require('dotenv').config()
+const cors = require("cors")
 
 //Port
 const PORT = process.env.PORT || 3003;
@@ -59,7 +60,7 @@ app.put('https://smashpedia.herokuapp.com/edit/:id' , (req,res)=>{
         res.redirect('/')
     })
 })
-app.delete('https://smashpedia.herokuapp.com/delete/:id' ,(req,res) =>{
+app .delete('https://smashpedia.herokuapp.com/delete/:id' ,(req,res) =>{
     characterSchema.findByIdAndRemove(req.params.id, (err,character)=>{
         res.redirect('/')
     })
@@ -68,6 +69,6 @@ app.delete('https://smashpedia.herokuapp.com/delete/:id' ,(req,res) =>{
 
 app.listen(PORT, () => console.log( 'Listening on port:', PORT));
 
-characterSchema.create(allCharacters, (err, items)=> {
-    console.log(items)
-})
+// characterSchema.create(allCharacters, (err, items)=> {
+//     console.log(items)
+// })
