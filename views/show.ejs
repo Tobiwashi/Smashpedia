@@ -1,0 +1,31 @@
+<head>
+    <%- include('./partials/head.ejs')%>
+    <link rel="shortcut icon" type="image/jpg" href='<%=character.logo%>'>
+    <title><%=character.name%></title>
+</head>
+
+<body class='body-background' background="<%=character.background%>">
+    <!-- NavBar Partial -->
+    <%- include('./partials/nav.ejs')%>
+    
+    <!--character Display-->
+    <div class="d-flex align-items-center flex-row">
+        <img class='mx-5 my-5'src="<%=character.image%>" alt="" width="800" height="1000">
+        <div class="d-flex flex-column w-25 show-card align-items-center character-show">
+            <h1 class="character-show"><%=character.name%></h1>
+            <div class="update-buttons d-flex flex-row justify-content-center w-50">
+            <form class='mx-3'action="/edit/<%=character._id%>" method="get">
+            <input class="btn btn-lg btn-danger btn-block my-5" type="submit" name="submit" value="Edit Character">
+            </form>
+            <form class='mx-3'action="/delete/<%=character._id%>?_method=DELETE" method="post">
+            <input class="btn btn-lg btn-danger btn-block my-5" type="submit" name="delete" value="Delete Character">
+            </form>
+            </div>
+            <div class="my-3 logo-img">
+                <img src="<%=character.logo%>" height="124" width="256">
+            </div>
+            <iframe width="650" height="400" src="<%=character.trailer%>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>           
+         </div>
+    </div>
+</body>
+</html>

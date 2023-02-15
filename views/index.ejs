@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head.ejs')%>
+    <title>SmashPedia</title>
+</head>
+<body class="bg-danger">
+        <!-- NavBar Partial -->
+        <%- include('./partials/nav.ejs') %>
+        <main id="productContainer" class="d-flex flex-wrap mx-5 my-5 justify-content-around">
+        
+            <!-- loops through all characters in array and creates a card for each character object in array -->
+            <% for(let character of allCharacters){ %>
+                <div class="card bg-dark txt-white my-2 mx-2 d-flex flex-column justify-content-center align-items-center <%= character.name %>" id='productCard' style="width: 20em; height: 27em;">
+                    <div class='d-flex justify-content-center'>
+                        <img src="<%=character.image%>" class="card-img-top mt-4" alt="..." style="width: 10em; height: 13em;">
+                    </div>
+                    <div class="card-body">       
+                            <h3 class="card-title toBeHovered text-center" style="font-size: 1.3em;"><%= character.name%> </h3>
+                            <p><strong>Fighter Number:</strong> <strong><%= character.fighter %></strong></p>
+                            <p><strong>Series:</strong> <strong><%= character.series%></strong></p>
+                            <div class="d-flex justify-content-center">
+                            <button class="btn btn-sm btn-danger btn-block">
+                                <a class="nav-link active" aria-current="page" href="/<%=character._id%>"><strong>View details</strong></a>
+                            </button>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            <% } %>
+        </main>
+</body>
+</html>

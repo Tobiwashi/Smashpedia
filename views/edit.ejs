@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%- include('./partials/head.ejs')%>
+        <title><%=character.name%></title>
+    </head>
+    
+    <body class='bg-danger' style="width: 100vw; height: 90vh;">
+        <!-- NavBar Partial -->
+        <%- include('./partials/nav.ejs')%>
+        
+        <!--Main Page-->
+        <main  id='product-page' class="form-signin w-100 m-auto d-flex flex-row">
+            <form action='/edit/<%=character._id%>?_method=PUT' method='post' class="txt-white w-25 my-5 mx-auto d-flex flex-column align-items-center">
+              <img class="mb-4 mx-3 " src="<%=character.logo%>" alt="" width="150" height="180">
+              <h1 class="my-2 txt-white">Edit <%=character.name%></h1>
+              <div class="form-floating my-1 w-75 p-form">
+                <input name="name"type="text" class="form-control" value="<%=character.name%>">
+                <label for="nameInput">Name</label>
+              </div>
+              
+              <div class="form-floating my-1 w-75 p-form">
+                <input name='fighter'type="text" class="form-control" value="<%=character.fighter%>">
+                <label for="numberInput">Fighter Number</label>
+              </div>
+
+              <div class="form-floating my-1 w-75 p-form">
+                <input type="text" name="series" class="form-control" value="<%=character.series%>">
+                <label for="seriesInput">Series</label>
+              </div>
+
+              <div class="form-floating my-1 w-75 p-form">
+                <input name='image'type="text" class="form-control" value="<%=character.image%>">
+                <label for="imageInput">Image</label>
+              </div>
+
+              <div class="form-floating my-1 w-75 p-form">
+                <input name='background'type="text" class="form-control" id="brandInput" value="<%=character.background%>">
+                <label for="backgroundInput">Background</label>
+              </div>
+              <div class="form-floating my-1 w-75 p-form">
+                <input name='trailer'type="text" class="form-control" id="brandInput" value="<%=character.trailer%>">
+                <label for="trailerInput">Trailer</label>
+              </div>
+              <div class="form-floating my-1 w-75 p-form">
+                <input name='logo'type="text" class="form-control" value="<%=character.logo%>">
+                <label for="logoInput">Logo</label>
+              </div>
+              <input class="my-3 w-75 btn btn-lg btn-light" type="submit" value="Save Changes">
+            </form>
+          </main>

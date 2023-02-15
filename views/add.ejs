@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%- include('./partials/head.ejs')%>
+        <title>Smashpedia</title>
+    </head>
+
+    <body class='bg-danger'>
+        <!-- NavBar Partial -->
+        <%- include('./partials/nav.ejs')%>
+        
+        <!--Main Page-->
+        <main  id='product-page' class="form-signin w-100 m-auto">
+
+          <form action='/add' method='post' class="w-25 my-5 mx-auto d-flex flex-column align-items-center">
+              <img class="mb-4 mx-3 " src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Smash_Ball.png/600px-Smash_Ball.png" alt="" width="150" height="150">
+              <h1 class="h3 mb-3 fw-normal">Create Your Character</h1>
+              <div class="form-floating my-1 w-75 p-form">
+                <input name="name" type="text" class="form-control" id="nameInput" placeholder="Fighter Number">
+                <label for="titleInput">Name</label>
+              </div>
+
+              <div class="form-floating my-1 w-75 p-form">
+                <input name='fighter' type="number" class="form-control" id="fighterInput" placeholder="Fighter Name">
+                <label for="fighterInput">Fighter Number</label>
+              </div>
+
+              <div class="form-floating my-1 w-75 p-form">
+                <input name="series" class="form-control" id="gameInput" placeholder="Series">
+                <label for="gameInput">Series</label>
+              </div>
+
+              <div class="form-floating my-1 w-75 p-form">
+                <input name='image'type="text" class="form-control" id="ImageInput" placeholder="Image URL">
+                <label for="thumbnailInput">Image</label>
+              </div>
+              <div class="form-floating my-1 w-75 p-form">
+                <input name='trailer'type="text" class="form-control" id="trailerInput" placeholder="Trailer URL">
+                <label for="trailerInput">Trailer URL</label>
+              </div>
+              <div class="form-floating my-1 w-75 p-form">
+                <input name='background'type="text" class="form-control" id="backgroundInput" placeholder="Background Image">
+                <label for="backgroundInput">Character background (1920x1080)</label>
+              </div>
+              <div class="form-floating my-1 w-75 p-form">
+                <input name='logo'type="text" class="form-control" id="Input" placeholder="Series Logo">
+                <label for="logoInput">Series Logo</label>
+              </div>
+              <input class="my-3 w-75 btn btn-lg btn-light" type="submit" value="Add Character">
+            </form>
+          </main>
+    </body>
+</html>
