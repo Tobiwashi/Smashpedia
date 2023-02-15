@@ -26,6 +26,7 @@ db.on('disconnected', () => console.log('Mongo Connection Terminated'));
 app.use(express.static(__dirname + '/public'))
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
+app.use(cors())
 
 app.get('https://smashpedia.herokuapp.com/', (req, res) =>{
     characterSchema.find({},(err, allCharacters) =>{
