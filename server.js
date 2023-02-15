@@ -68,6 +68,6 @@ app.delete('https://smashpedia.herokuapp.com/delete/:id' ,(req,res) =>{
 
 app.listen(PORT, () => console.log( 'Listening on port:', PORT));
 
-// characterSchema.create(allCharacters, (err, items)=> {
-//     console.log(items)
-// })
+characterSchema.create(allCharacters, (err, items)=> {
+    console.log(items)
+})
