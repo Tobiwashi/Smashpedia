@@ -28,40 +28,40 @@ app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
 app.use(cors())
 
-app.get('https://smashpedia.herokuapp.com/', (req, res) =>{
+app.get('/', (req, res) =>{
     characterSchema.find({},(err, allCharacters) =>{
         res.json('index.ejs', {allCharacters})
     })
 
-app.get('https://smashpedia.herokuapp.com/add', (req,res)=>{
+app.get('/add', (req,res)=>{
         res.render('add.ejs')
     }) 
 
-app.post('https://smashpedia.herokuapp.com/add', (req, res)=>{
+app.post('/add', (req, res)=>{
         characterSchema.create(req.body, (error, createdCharacter)=>{
             res.json('/')
         });
     }); 
 
-app.get('https://smashpedia.herokuapp.com/:id', (req,res) =>{
+app.get('/:id', (req,res) =>{
         characterSchema.findById(req.params.id, (err,character)=>{
             res.render('show.ejs',{character})
         })
     })
 }) 
 
-app.get('https://smashpedia.herokuapp.com/edit/:id', (req,res) =>{
+app.get('/edit/:id', (req,res) =>{
     characterSchema.findById(req.params.id, (err,character)=>{
         res.render('edit.ejs',{character})
     })
 })
 
-app.put('https://smashpedia.herokuapp.com/edit/:id' , (req,res)=>{
+app.put('/edit/:id' , (req,res)=>{
     characterSchema.findByIdAndUpdate(req.params.id, req.body, {new:true},(err,character)=>{
         res.redirect('/')
     })
 })
-app .delete('https://smashpedia.herokuapp.com/delete/:id' ,(req,res) =>{
+app .delete('/delete/:id' ,(req,res) =>{
     characterSchema.findByIdAndRemove(req.params.id, (err,character)=>{
         res.redirect('/')
     })
