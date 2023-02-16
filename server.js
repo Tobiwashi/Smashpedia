@@ -3,6 +3,7 @@
 const express = require('express');
 const methodOverride  = require('method-override');
 const mongoose = require ('mongoose');
+const axios = require('axios')
 const app = express ();
 const db = mongoose.connection;
 const characterSchema = require('./models/characterSchema')
@@ -27,7 +28,7 @@ app.use(express.static(__dirname + '/public'))
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
 app.use(cors())
-
+app.use(express.json())
 app.get('/', (req, res) =>{
     characterSchema.find({},(err, allCharacters) =>{
         res.json('index.ejs', {allCharacters})
