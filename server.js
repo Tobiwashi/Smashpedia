@@ -29,9 +29,11 @@ app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
 app.use(cors())
 app.use(express.json())
+
+
 app.get('/', (req, res) =>{
     characterSchema.find({},(err, allCharacters) =>{
-        res.json('index.ejs', {allCharacters})
+        res.render('index.ejs', {allCharacters})
     })
 
 app.get('/add', (req,res)=>{
@@ -40,7 +42,7 @@ app.get('/add', (req,res)=>{
 
 app.post('/add', (req, res)=>{
         characterSchema.create(req.body, (error, createdCharacter)=>{
-            res.json('/')
+            res.render('/')
         });
     }); 
 
