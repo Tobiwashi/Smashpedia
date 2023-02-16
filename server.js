@@ -29,12 +29,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
 app.use(cors())
 app.use(express.json())
+app.set('view engine', 'ejs')
 
-
-app.get('/', (req, res) =>{
-    characterSchema.find({},(err, allCharacters) =>{
-        res.render('index.ejs', {allCharacters})
-    })
+app.get('/', (req, res) =>res.send("Hi there"));
 
 app.get('/add', (req,res)=>{
         res.render('add.ejs')
@@ -51,7 +48,7 @@ app.get('/:id', (req,res) =>{
             res.render('show.ejs',{character})
         })
     })
-}) 
+ 
 
 app.get('/edit/:id', (req,res) =>{
     characterSchema.findById(req.params.id, (err,character)=>{
