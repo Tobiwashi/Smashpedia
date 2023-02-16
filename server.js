@@ -30,7 +30,7 @@ app.use(cors())
 
 app.get('https://smashpedia.herokuapp.com/', (req, res) =>{
     characterSchema.find({},(err, allCharacters) =>{
-        res.render('index.ejs', {allCharacters})
+        res.json('index.ejs', {allCharacters})
     })
 
 app.get('https://smashpedia.herokuapp.com/add', (req,res)=>{
@@ -39,7 +39,7 @@ app.get('https://smashpedia.herokuapp.com/add', (req,res)=>{
 
 app.post('https://smashpedia.herokuapp.com/add', (req, res)=>{
         characterSchema.create(req.body, (error, createdCharacter)=>{
-            res.redirect('/')
+            res.json('/')
         });
     }); 
 
