@@ -27,9 +27,6 @@ db.on('disconnected', () => console.log('Mongo Connection Terminated'));
 app.use(express.static(__dirname + '/public'))
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
-app.use(cors())
-app.use(express.json())
-app.set('view engine', 'ejs')
 
 app.get('/', (req, res) =>{
     characterSchema.find({},(err, allCharacters) =>{
