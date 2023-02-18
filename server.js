@@ -12,7 +12,7 @@ require('dotenv').config()
 const cors = require("cors")
 
 //Port
-const PORT = process.env.PORT || '52125';
+const PORT = process.env.PORT;
 
 // How to connect to the database either via heroku or locally
 const MONGODB_URI = process.env.MONGODB_URI;
