@@ -27,6 +27,7 @@ db.on('error', (err) => console.log(err.message + ' is Mongod not running?'));
 db.on('connected', () => console.log('Mongo Connection Established: ', MONGODB_URI));
 db.on('disconnected', () => console.log('Mongo Connection Terminated'));
 
+app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'))
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
