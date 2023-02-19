@@ -2,7 +2,8 @@
   "name": "smashpedia",
   "version": "1.0.0",
   "engines": {
-    "node": "16.18.0"
+    "node": "16.14.0",
+    "npm": "8.3.1"
   },
   "description": "",
   "main": "server.js",
