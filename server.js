@@ -31,7 +31,6 @@ app.use(express.static(__dirname + '/public'))
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
 
-app.listen(PORT, () => console.log( 'Listening on port:', PORT));
 
 app.get('/', (req, res) =>{
     characterSchema.find({},(err, allCharacters) =>{
