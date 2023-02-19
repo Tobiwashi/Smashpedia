@@ -18,7 +18,10 @@ const PORT = process.env.PORT || '8080';
 const MONGODB_URI = process.env.MONGODB_URI;
 
 // Connect to Mongo & Fix Depreciation Warnings from Mongoose //
+mongoose.set('strictQuery', true);
 mongoose.connect(MONGODB_URI);
+
+
 
 db.on('error', (err) => console.log(err.message + ' is Mongod not running?'));
 db.on('connected', () => console.log('Mongo Connection Established: ', MONGODB_URI));
